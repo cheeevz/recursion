@@ -1,0 +1,33 @@
+mergeSort([5, 2, 8, 1, 9])
+│
+├─ DIVISION (découper en deux)
+│  ├─ left = mergeSort([5, 2])
+│  │  ├─ left = mergeSort([5])
+│  │  │  └─ retourne [5] (cas de base: 1 élément)
+│  │  │
+│  │  ├─ right = mergeSort([2])
+│  │  │  └─ retourne [2] (cas de base: 1 élément)
+│  │  │
+│  │  └─ merge([5], [2])
+│  │     └─ retourne [2, 5] ✓
+│  │
+│  └─ right = mergeSort([8, 1, 9])
+│     ├─ left = mergeSort([8])
+│     │  └─ retourne [8]
+│     │
+│     ├─ right = mergeSort([1, 9])
+│     │  ├─ left = mergeSort([1])
+│     │  │  └─ retourne [1]
+│     │  │
+│     │  ├─ right = mergeSort([9])
+│     │  │  └─ retourne [9]
+│     │  │
+│     │  └─ merge([1], [9])
+│     │     └─ retourne [1, 9] ✓
+│     │
+│     └─ merge([8], [1, 9])
+│        └─ retourne [1, 8, 9] ✓
+│
+└─ FUSION (recombiner les deux moitiés triées)
+   └─ merge([2, 5], [1, 8, 9])
+      └─ retourne [1, 2, 5, 8, 9] ✓✓✓
